@@ -7,14 +7,31 @@
 // Game assets
 
 // Images
-#define BACKGROUND_IMG "assets\\images\\game_background.png"
-#define SIDE_WALL_IMG "assets\\images\\side-wall.png"
-#define FLOOR_IMG "assets\\images\\floor.png"
-#define BLOCK_IMG "assets\\images\\block.png"
-#define CHARACTER_IMG "assets\\charc-3.png"
+// ===============================Game===============================
+#define GAME_BACKGROUND_IMG "assets\\images\\Game\\game_background.png"
+#define SIDE_WALL_IMG "assets\\images\\Game\\side-wall.png"
+#define BLOCK_IMG "assets\\images\\Game\\block.png"
+// ==================================================================
+
+// =============================Character============================
+//#define CHARACTER_IMG "assets\\charc-3.png"
+// ==================================================================
 
 // Audio
-#define THEME_MUSIC "assets\\audio\\menu_theme_music.wav"
-#define MOUTH_CLAP_SOUND "assets\\audio\\mouth_clap_sound.wav"
+// ===============================Menu===============================
+#define THEME_MUSIC "assets\\audio\\Menu\\menu_theme_music.wav"
+#define MOUTH_CLAP_SOUND "assets\\audio\\Menu\\mouth_clap_sound.wav"
+#define CHOOSE_OPTION_SOUND "assets\\audio\\Menu\\choose_option_sound.wav"
+// ==================================================================
 
-// Fonts
+// ===============================Game===============================
+#define BLOCK_COLLISION_SOUND "assets\\audio\\Game\\block_collision_sound.wav"
+#define FALL_COLLISION_SOUND "assets\\audio\\Game\\fall_collision_sound.wav"
+// ==================================================================
+
+// =============================Character============================
+#define YO_SOUND "assets\\audio\\Character\\yo_sound.wav"
+// ==================================================================
+
+// Fonts 
+#define FONT_TYPE "assets\\font\\Pacifico.ttf"

@@ -12,6 +12,7 @@ public:
 	void draw(sf::RenderWindow &window);
 	void moveDown();
 	void moveUp();
+	void selectOption();
 
 	~Menu();
 
@@ -21,7 +22,12 @@ private:
 	
 	sf::Font font;
 	sf::Text menuOptions[MAX_MENU_OPTIONS];
+
+	// Audio
 	sf::Music themeMusic;
 	sf::SoundBuffer mouthClapSound;
 	sf::Sound clap;
+
+	sf::SoundBuffer chooseOptionSound;
+	sf::Sound choose;
 };

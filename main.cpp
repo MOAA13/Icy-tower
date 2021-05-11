@@ -17,7 +17,7 @@ int main()
 	// Background
 	sf::RectangleShape background(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
 	sf::Texture backgroundTexture;
-	backgroundTexture.loadFromFile(BACKGROUND_IMG);
+	backgroundTexture.loadFromFile(GAME_BACKGROUND_IMG);
 	background.setTexture(&backgroundTexture);
 	background.setPosition(50.0f, 0.0f);
 
@@ -90,6 +90,11 @@ int main()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
 			{
 				mainMenu.moveDown();
+				break;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
+			{
+				mainMenu.selectOption();
 				break;
 			}
 			

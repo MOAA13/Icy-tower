@@ -7,13 +7,16 @@
 Menu::Menu()
 {
 	// load font file
-	if (!font.loadFromFile("Pacifico.ttf")){}
+	if (!font.loadFromFile(FONT_TYPE)){}
 
 	// load theme music
 	if (!themeMusic.openFromFile(THEME_MUSIC)) {}
 
 	// load mouth clap sound file
 	if (!mouthClapSound.loadFromFile(MOUTH_CLAP_SOUND)){}
+
+	// load choose option sound file
+	if (!chooseOptionSound.loadFromFile(CHOOSE_OPTION_SOUND)) {}
 
 	// play theme music
 	themeMusic.play();
@@ -23,7 +26,8 @@ Menu::Menu()
 
 	// set sound buffer
 	clap.setBuffer(mouthClapSound);
-
+	choose.setBuffer(chooseOptionSound);
+	
 	// Start Game
 	// set font type
 	menuOptions[0].setFont(font);
@@ -114,3 +118,9 @@ void Menu::moveUp()
 		menuOptions[currentSelectedOption].setFillColor(sf::Color::Blue);
 	}
 }
+
+void Menu::selectOption()
+{
+	choose.play();
+}
+
