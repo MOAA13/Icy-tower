@@ -2,6 +2,7 @@
 #include "DEFINITIONS.h"
 #include "Menu.h"
 #include <iostream>
+
 #include <time.h>
 #include <vector>
 
@@ -79,6 +80,8 @@ int main()
 
 			// Display
 			window.clear();
+
+			
 			window.draw(gameBackground);
 
 			//Menu
@@ -99,7 +102,7 @@ int main()
 				mainMenu.selectOption();
 				break;
 			}
-			/*
+			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 			{
 				mainMenu.volumeDown();
@@ -109,16 +112,16 @@ int main()
 			{
 				mainMenu.volumeUp();
 			}
-			*/
 
 			/*
-			window.draw(characterSprite);
-			window.draw(background);
+			//window.draw(characterSprite);
+			window.draw(gameBackground);
 			window.draw(block);
-			window.draw(right_wall);
-			window.draw(left_wall);
+			window.draw(rightWall);
+			window.draw(leftWall);
 			*/
 			window.display();
+			
 		}
 	}
 	return 0;
