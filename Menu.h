@@ -6,7 +6,9 @@
 
 class Menu
 {
+
 public:
+
 	Menu();
 
 	void draw(sf::RenderWindow &window);
@@ -14,14 +16,16 @@ public:
 	void moveUp();
 	void selectOption();
 
+	void volumeDown();
+	void volumeUp();
+
 	~Menu();
 
 private:
 
-	int currentSelectedOption;
-	
-	sf::Font font;
-	sf::Text menuOptions[MAX_MENU_OPTIONS];
+	// Background
+	sf::RectangleShape menuBackground;
+	sf::Texture menuBackgroundTexture;
 
 	// Audio
 	sf::Music themeMusic;
@@ -30,4 +34,10 @@ private:
 
 	sf::SoundBuffer chooseOptionSound;
 	sf::Sound choose;
+
+	// Menu Functionality
+	int currentSelectedOption;
+	sf::Font font;
+	sf::Text menuOptions[MAX_MENU_OPTIONS];
+
 };

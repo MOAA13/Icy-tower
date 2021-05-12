@@ -15,26 +15,26 @@ int main()
 	Menu mainMenu;
 
 	// Background
-	sf::RectangleShape background(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
-	sf::Texture backgroundTexture;
-	backgroundTexture.loadFromFile(GAME_BACKGROUND_IMG);
-	background.setTexture(&backgroundTexture);
-	background.setPosition(50.0f, 0.0f);
+	sf::RectangleShape gameBackground(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
+	sf::Texture gameBackgroundTexture;
+	gameBackgroundTexture.loadFromFile(GAME_BACKGROUND_IMG);
+	gameBackground.setTexture(&gameBackgroundTexture);
+	gameBackground.setPosition(50.0f, 0.0f);
 
 	// Wall - right
-	sf::RectangleShape right_wall(sf::Vector2f(80.0f, float(SCREEN_HEIGHT)));
+	sf::RectangleShape rightWall(sf::Vector2f(80.0f, float(SCREEN_HEIGHT)));
 	sf::Texture rightTexture;
 	rightTexture.loadFromFile(SIDE_WALL_IMG);
-	right_wall.setTexture(&rightTexture);
-	right_wall.setPosition(float(SCREEN_WIDTH) - 81, 0.0f);
+	rightWall.setTexture(&rightTexture);
+	rightWall.setPosition(float(SCREEN_WIDTH) - 81, 0.0f);
 
 	// Wall - left
-	sf::RectangleShape left_wall(sf::Vector2f(80.0f, float(SCREEN_HEIGHT)));
+	sf::RectangleShape leftWall(sf::Vector2f(80.0f, float(SCREEN_HEIGHT)));
 	sf::Texture leftTexture;
 	leftTexture.loadFromFile(SIDE_WALL_IMG);
-	left_wall.setTexture(&leftTexture);
-	left_wall.setScale(sf::Vector2f(-1, 1));
-	left_wall.setPosition(81.0f, 0.0f);
+	leftWall.setTexture(&leftTexture);
+	leftWall.setScale(sf::Vector2f(-1, 1));
+	leftWall.setPosition(81.0f, 0.0f);
 
 	// Floor
 	sf::RectangleShape block(sf::Vector2f(float(SCREEN_WIDTH) - 70.0f, 50.0f));
@@ -65,20 +65,22 @@ int main()
 				break;
 			}
 
-			//player.setTextureRect(animation.uvRect);
-			//if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)))
-			//	player.move(-0.1, 0);
-			//if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)))
-			//	player.move(0, -0.1);
-			//if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)))
-			//	player.move(0.1, 0);
-			//if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)))
-			//	player.move(0, 0.1);
+			/*			
+			player.setTextureRect(animation.uvRect);
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)))
+				player.move(-0.1, 0);
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)))
+				player.move(0, -0.1);
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)))
+				player.move(0.1, 0);
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)))
+				player.move(0, 0.1);
+			*/
 
 			// Display
 			window.clear();
-			//window.draw(characterSprite);
-			// 
+			window.draw(gameBackground);
+
 			//Menu
 			mainMenu.draw(window);
 
@@ -97,11 +99,25 @@ int main()
 				mainMenu.selectOption();
 				break;
 			}
-			
-			//window.draw(background);
-			//window.draw(block);
-			//window.draw(right_wall);
-			//window.draw(left_wall);
+			/*
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+			{
+				mainMenu.volumeDown();
+				break;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+			{
+				mainMenu.volumeUp();
+			}
+			*/
+
+			/*
+			window.draw(characterSprite);
+			window.draw(background);
+			window.draw(block);
+			window.draw(right_wall);
+			window.draw(left_wall);
+			*/
 			window.display();
 		}
 	}

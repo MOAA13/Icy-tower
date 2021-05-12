@@ -7,10 +7,14 @@
 // Game assets
 
 // Images
+// ===============================Menu===============================
+#define MENU_BACKGROUND_IMG "assets\\Images\\Menu\\wall.png"
+// ==================================================================
+
 // ===============================Game===============================
-#define GAME_BACKGROUND_IMG "assets\\images\\Game\\game_background.png"
-#define SIDE_WALL_IMG "assets\\images\\Game\\side-wall.png"
-#define BLOCK_IMG "assets\\images\\Game\\block.png"
+#define GAME_BACKGROUND_IMG "assets\\Images\\Game\\game_background.png"
+#define SIDE_WALL_IMG "assets\\Images\\Game\\side-wall.png"
+#define BLOCK_IMG "assets\\Images\\Game\\block.png"
 // ==================================================================
 
 // =============================Character============================
@@ -19,19 +23,19 @@
 
 // Audio
 // ===============================Menu===============================
-#define THEME_MUSIC "assets\\audio\\Menu\\menu_theme_music.wav"
-#define MOUTH_CLAP_SOUND "assets\\audio\\Menu\\mouth_clap_sound.wav"
-#define CHOOSE_OPTION_SOUND "assets\\audio\\Menu\\choose_option_sound.wav"
+#define THEME_MUSIC "assets\\Audio\\Menu\\menu_theme_music.wav"
+#define MOUTH_CLAP_SOUND "assets\\Audio\\Menu\\mouth_clap_sound.wav"
+#define CHOOSE_OPTION_SOUND "assets\\Audio\\Menu\\choose_option_sound.wav"
 // ==================================================================
 
 // ===============================Game===============================
-#define BLOCK_COLLISION_SOUND "assets\\audio\\Game\\block_collision_sound.wav"
-#define FALL_COLLISION_SOUND "assets\\audio\\Game\\fall_collision_sound.wav"
+#define BLOCK_COLLISION_SOUND "assets\\Audio\\Game\\block_collision_sound.wav"
+#define FALL_COLLISION_SOUND "assets\\Audio\\Game\\fall_collision_sound.wav"
 // ==================================================================
 
 // =============================Character============================
-#define YO_SOUND "assets\\audio\\Character\\yo_sound.wav"
+#define YO_SOUND "assets\\Audio\\Character\\yo_sound.wav"
 // ==================================================================
 
 // Fonts 
-#define FONT_TYPE "assets\\font\\Pacifico.ttf"
+#define FONT_TYPE "assets\\Font\\Pacifico.ttf"

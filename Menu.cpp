@@ -18,17 +18,21 @@ Menu::Menu()
 	// load choose option sound file
 	if (!chooseOptionSound.loadFromFile(CHOOSE_OPTION_SOUND)) {}
 
+	// Menu Background
+	menuBackground.setSize(sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
+	menuBackgroundTexture.loadFromFile(MENU_BACKGROUND_IMG);
+	menuBackground.setTexture(&menuBackgroundTexture);
+	
 	// play theme music
 	themeMusic.play();
-	//themeMusic.setPitch(0.9f);
-	themeMusic.setVolume(50.f);
+	themeMusic.setVolume(100.0f);
 	themeMusic.setLoop(true);
 
 	// set sound buffer
 	clap.setBuffer(mouthClapSound);
 	choose.setBuffer(chooseOptionSound);
 	
-	// Start Game
+	// set menu options
 	// set font type
 	menuOptions[0].setFont(font);
 	// set color
@@ -66,6 +70,20 @@ Menu::Menu()
 
 	currentSelectedOption = 0;
 
+	/*
+	sf::Text volume;
+	volume.setFont(font);
+	// set color
+	volume.setFillColor(sf::Color::White);
+	// set text string
+	std::string volumeText = std::to_string(themeMusic.getVolume()) + "%";
+	volume.setString(volumeText);
+	// set text size
+	volume.setCharacterSize(20);
+	// set position
+	volume.setPosition(sf::Vector2f(SCREEN_WIDTH / 2, SCREEN_HEIGHT / (MAX_MENU_OPTIONS + 1) * 4));
+	*/
+
 }
 
 Menu::~Menu()
@@ -75,6 +93,7 @@ Menu::~Menu()
 
 void Menu::draw(sf::RenderWindow &window)
 {
+	window.draw(menuBackground);
 	for (int i = 0; i < 3; i++)
 	{
 		window.draw(menuOptions[i]);
@@ -124,3 +143,18 @@ void Menu::selectOption()
 	choose.play();
 }
 
+void Menu::volumeDown()
+{
+	float currentVolume = themeMusic.getVolume();
+
+	if (currentVolume > 5) themeMusic.setVolume(currentVolume - 5);
+	else themeMusic.stop();
+}
+
+void Menu::volumeUp()
+{
+	float currentVolume = themeMusic.getVolume();
+
+	if (themeMusic.getStatus() == 0) themeMusic.play();
+	if (currentVolume < 95) themeMusic.setVolume(currentVolume + 5);
+}
