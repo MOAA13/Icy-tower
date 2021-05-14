@@ -2,9 +2,10 @@
 #include "DEFINITIONS.h"
 #include "Menu.h"
 #include <iostream>
-
+#include "Animation.h"
 #include <time.h>
 #include <vector>
+#include "Player.h"
 
 
 int main()
@@ -14,7 +15,6 @@ int main()
 
 	// Main menu
 	Menu mainMenu;
-
 	// Background
 	sf::RectangleShape gameBackground(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
 	sf::Texture gameBackgroundTexture;
@@ -43,17 +43,20 @@ int main()
 	blockTexture.loadFromFile(BLOCK_IMG);
 	block.setTexture(&blockTexture);
 	block.setPosition(50.0f, SCREEN_HEIGHT - 75);
-
-	//sf::Texture characterTexture;
-	//characterTexture.loadFromFile(CHARACTER_IMG);
-
-	//sf::Sprite characterSprite;
-	//characterSprite.setTexture(characterTexture);
-	//characterSprite.setTextureRect(sf::IntRect(4 * (1280 / 30),0,540/15,80));
+	//Temp Player
+	sf::Texture playerTexture;
+	playerTexture.loadFromFile(CHARACTER_IMG); 
+	//Animation
+	Player player(&playerTexture, sf::Vector2u(9, 4), 0.3f , 100.0f);
+	float deltatime = 0.0f;
+	sf::Clock clock; 
 
 	// Game loop
 	while (window.isOpen())
 	{
+
+
+		deltatime = clock.restart().asSeconds(); // this will return the delta time
 		// Creating event object
 		sf::Event evnt;
 
@@ -78,13 +81,17 @@ int main()
 				player.move(0, 0.1);
 			*/
 
+			
+			player.Update(deltatime);
+			
 			// Display
 			window.clear();
 
 			
+		
 			window.draw(gameBackground);
-
-			//Menu
+			player.Draw(window);
+			/*Menu
 			mainMenu.draw(window);
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
@@ -120,7 +127,9 @@ int main()
 			window.draw(rightWall);
 			window.draw(leftWall);
 			*/
+			
 			window.display();
+			
 			
 		}
 	}
