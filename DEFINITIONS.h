@@ -1,5 +1,5 @@
 #pragma once
-#include <string.h>
+#include <string>
 
 // Resulotion
 #define SCREEN_WIDTH 800
@@ -15,10 +15,10 @@ struct position {
 };
 
 // Game assets
+#define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\menu_without_text.png"
 
 // Images
 // ===============================Menu===============================
-#define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\menu_without_text.png"
 const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 {
 	{
@@ -42,8 +42,8 @@ const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 #define BLOCK_IMG "assets\\Images\\Game\\block.png"
 // ==================================================================
 
-// =============================Character============================
-//#define CHARACTER_IMG "assets\\charc-3.png"
+// =============================Temp Character============================
+#define CHARACTER_IMG "assets\\Images\\Game\\skeleton.png"
 // ==================================================================
 
 // Audio
@@ -63,4 +63,4 @@ const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 // ==================================================================
 
 // Fonts 
-#define FONT_TYPE "assets\\Font\\Pacifico.ttf"
+#define FONT_TYPE "assets\\Font\\pharaonic.ttf"

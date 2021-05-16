@@ -6,9 +6,6 @@
 // constructor
 Menu::Menu(int menu_options_count)
 {
-	// load font file
-	//if (!font.loadFromFile(FONT_TYPE)){}
-
 	// load mouth clap sound file
 	if (!mouthClapSound.loadFromFile(MOUTH_CLAP_SOUND)){}
 
