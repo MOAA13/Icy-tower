@@ -2,10 +2,8 @@
 #include "DEFINITIONS.h"
 #include "Menu.h"
 #include <iostream>
-
 #include <time.h>
-#include <vector>
-
+#include <Windows.h>
 
 int main()
 {
@@ -13,7 +11,13 @@ int main()
  	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Icy Tower", sf::Style::Close | sf::Style::Resize);
 
 	// Main menu
-	Menu mainMenu;
+	const int mainMenuOptionsCount = 3;
+	Menu mainMenu(mainMenuOptionsCount);
+	mainMenu.setBackgroundImg(MAIN_MENU_BACKGROUND_IMG);
+	mainMenu.setBackgroundMusic(THEME_MUSIC);
+
+	// Options Menu
+
 
 	// Background
 	sf::RectangleShape gameBackground(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
@@ -80,13 +84,12 @@ int main()
 
 			// Display
 			window.clear();
-
 			
 			window.draw(gameBackground);
 
 			//Menu
 			mainMenu.draw(window);
-
+			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 			{
 				mainMenu.moveUp();
@@ -97,21 +100,35 @@ int main()
 				mainMenu.moveDown();
 				break;
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter))
-			{
-				mainMenu.selectOption();
-				break;
-			}
-			
+
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
 			{
+				mainMenu.hide();
 				mainMenu.volumeDown();
 				break;
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 			{
 				mainMenu.volumeUp();
+				break;
 			}
+				/*case sf::Event::KeyPressed:
+				switch (evnt.key.code) {
+				case sf::Keyboard::Up:
+					mainMenu.moveUp();
+					break;
+				case sf::Keyboard::Down:
+					mainMenu.moveDown();
+					break;
+				case sf::Keyboard::Left:
+					mainMenu.hide();
+					mainMenu.volumeDown();
+					break;
+				case sf::Keyboard::Right:
+					mainMenu.volumeUp();
+					break;
+				}
+				break;*/
 
 			/*
 			//window.draw(characterSprite);
@@ -121,7 +138,8 @@ int main()
 			window.draw(leftWall);
 			*/
 			window.display();
-			
+			Sleep(100);
+
 		}
 	}
 	return 0;

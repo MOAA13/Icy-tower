@@ -1,14 +1,39 @@
 #pragma once
+#include <string.h>
 
 // Resulotion
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 
+// Menu
+#define MAX_MENU_OPTIONS_COUNT 4
+
+// Position datatype
+struct position {
+	float x;
+	float y;
+};
+
 // Game assets
 
 // Images
 // ===============================Menu===============================
-#define MENU_BACKGROUND_IMG "assets\\Images\\Menu\\wall.png"
+#define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\menu_without_text.png"
+const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
+{
+	{
+		"assets\\Images\\Menu\\Main\\start_unselected.png",
+		"assets\\Images\\Menu\\Main\\start_selected.png"
+	},
+	{
+		"assets\\Images\\Menu\\Main\\options_unselected.png",
+		"assets\\Images\\Menu\\Main\\options_selected.png"
+	},
+	{
+		"assets\\Images\\Menu\\Main\\exit_unselected.png",
+		"assets\\Images\\Menu\\Main\\exit_selected.png"
+	}
+};
 // ==================================================================
 
 // ===============================Game===============================
