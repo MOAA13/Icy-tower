@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Animation.h"
 
+
 int main()
 {
 	// Creating window object with (close and resize)

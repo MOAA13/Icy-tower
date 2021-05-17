@@ -2,6 +2,7 @@
 #include "Animation.h"
 
 
+
 	Animation::Animation(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime)
 	{
 

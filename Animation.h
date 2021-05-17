@@ -4,6 +4,7 @@
 #include "DEFINITIONS.h"
 
 
+
 // define the class
 class Animation 
 	{
