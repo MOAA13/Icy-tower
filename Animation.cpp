@@ -24,14 +24,7 @@
 	void Animation::Update(int row, float deltaTime , bool faceRight )
 	{
 		CurrentImage.y = row; // setting the y-axis of the current image to the row
-
 		totalTime += deltaTime; // incrementation of the time
-		if (row == 0)
-			ImageCount.x = 3;
-
-
-
-
 		if (totalTime >= switchTIme)
 		{
 			totalTime -= switchTIme; // to get a smooth animation 

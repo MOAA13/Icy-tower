@@ -2,10 +2,10 @@
 #include "DEFINITIONS.h"
 #include "Menu.h"
 #include <iostream>
-#include "Animation.h"
 #include <time.h>
 #include <vector>
 #include "Player.h"
+#include "Animation.h"
 
 int main()
 {
@@ -55,7 +55,7 @@ int main()
 	playerTexture.loadFromFile(CHARACTER_IMG); 
 
 	//Animation
-	Player player(&playerTexture, sf::Vector2u(9, 4), 0.3f , 100.0f);
+	Player player(&playerTexture, sf::Vector2u(3, 9), 0.3f , 100.0f);
 	float deltatime = 0.0f;
 	sf::Clock clock; 
 
@@ -90,10 +90,10 @@ int main()
 			
 			player.Update(deltatime);
 			window.clear();
-
-			//window.draw(gameBackground);
-			//player.Draw(window);
+			window.draw(gameBackground);
 			
+			player.Draw(window);
+			/*
 			mainMenu.draw(window);
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
@@ -143,7 +143,9 @@ int main()
 			window.draw(rightWall);
 			window.draw(leftWall);
 			*/
-			
+			window.draw(block);
+			window.draw(rightWall);
+			window.draw(leftWall);
 			window.display();
 			
 		}
