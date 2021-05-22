@@ -43,7 +43,7 @@ const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 // ==================================================================
 
 // =============================Temp Character============================
-#define CHARACTER_IMG "assets\\Images\\Game\\tux_from_linux.png"
+#define CHARACTER_IMG "assets\\Images\\Game\\char.png"
 // ==================================================================
 
 // Audio

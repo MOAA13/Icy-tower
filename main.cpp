@@ -56,7 +56,7 @@ int main()
 	playerTexture.loadFromFile(CHARACTER_IMG); 
 
 	//Animation
-	Player player(&playerTexture, sf::Vector2u(3, 9), 0.3f , 100.0f);
+	Player player(&playerTexture, sf::Vector2u(7, 4), 0.3f , 100.0f);
 	float deltatime = 0.0f;
 	sf::Clock clock; 
 
