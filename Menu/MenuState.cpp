@@ -1,7 +1,4 @@
 #include "MenuState.h"
-#include "../DEFINITIONS.h"
-#include <iostream>
-#include <string.h>
 
 // constructor
 MenuState::MenuState()

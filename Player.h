@@ -1,20 +1,23 @@
 #pragma once
-// including needed libraries
-#include "DEFINITIONS.h"
 #include <SFML/Graphics.hpp>
+#include "DEFINITIONS.h"
 #include "Animation.h"
-// defining the class
+
+// defining player class
 class Player
 {
-	// defining public functions
 public:
+	// public functions
 	Player(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime , float speed);
-	~Player();
-	void Update(float deltatime);
-	void Draw(sf::RenderWindow& window);
-   // defining private variables
+
+	void update(float deltatime);
+	void draw(sf::RenderWindow& window);
+
 private:
-	sf::RectangleShape body; // player body
+	// private variables
+
+	// player body
+	sf::RectangleShape body;
 	Animation animation;
 	unsigned int row; // unsigned because it's never gonna be less that zero
 	float speed;

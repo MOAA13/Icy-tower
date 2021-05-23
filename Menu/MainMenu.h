@@ -1,12 +1,12 @@
 #pragma once
 #include "MenuState.h"
-#include "../DEFINITIONS.h"
 
 class MainMenu : public MenuState
 {
 public:
-
+	// public functions
 	MainMenu(int menu_options_count);
+
 	void draw(sf::RenderWindow& window);
 
 	void setBackgroundMusic(std::string musicFile);
@@ -14,6 +14,7 @@ public:
 	void volumeUp();
 
 public:
+	// private variables
 	sf::Music backgroundMusic;
 };
 

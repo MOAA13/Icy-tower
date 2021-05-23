@@ -1,7 +1,4 @@
-#include "MenuState.h"
 #include "MainMenu.h"
-#include <iostream>
-#include <string.h>
 
 // constructor
 MainMenu::MainMenu(int menu_options_count)

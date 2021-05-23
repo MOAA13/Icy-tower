@@ -8,6 +8,9 @@
 // Menu
 #define MAX_MENU_OPTIONS_COUNT 4
 
+#define MAIN_MENU_OPTIONS_COUNT 3
+#define OPTIONS_MENU_OPTIONS_COUNT 3
+
 // Game assets
 #define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\main_menu_background.png"
 #define OPTIONS_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Options\\options_menu_background.png"
@@ -65,6 +68,7 @@ const std::string OPTIONS_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 // ==================================================================
 
 // ===============================Game===============================
+#define GAME_BACKGROUND_MUSIC "assets\\Audio\\Game\\game_background_music.wav"
 #define BLOCK_COLLISION_SOUND "assets\\Audio\\Game\\block_collision_sound.wav"
 #define FALL_COLLISION_SOUND "assets\\Audio\\Game\\fall_collision_sound.wav"
 // ==================================================================

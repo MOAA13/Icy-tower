@@ -1,4 +1,3 @@
-// including needed libraries
 #include "Player.h"
 
 Player::Player(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime , float speed):
@@ -14,12 +13,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime ,
 	body.setTexture(texture);
 }
 
-
-Player::~Player()
-{
-}
-
-void Player::Update(float deltatime)
+void Player::update(float deltatime)
 {
 	sf::Vector2f movement(0.0f, 0.0f); //creating a movement variable 
 	if ( (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)) && body.getPosition().x >= SCREEN_WIDTH - 720)
@@ -38,14 +32,13 @@ void Player::Update(float deltatime)
 			faceRight = false;
 		
 	}
-	animation.Update( row , deltatime, faceRight);
+	animation.update( row , deltatime, faceRight);
 	body.setTextureRect(animation.uvRect);
 	body.move(movement);
-
 }
 
-void Player::Draw(sf::RenderWindow &window)
+void Player::draw(sf::RenderWindow &window)
 {
-	//to display the player
+	// display the player
 	window.draw(body);
 }

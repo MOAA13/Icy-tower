@@ -1,14 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
 #include "../DEFINITIONS.h"
 #include <string.h>
 
+// defining menu state base class
 class MenuState
 {
-
 public:
-
+	// public functions
 	MenuState();
 
 	void show();
@@ -20,18 +21,18 @@ public:
 	void moveUp();
 
 public:
-
+	// public variables
 	bool menuOptionsSelection[MAX_MENU_OPTIONS_COUNT][2];
 	bool display;
 	int currentSelectedOption;
 
 protected:
-
+	// protected functions
 	void selectOption(int optionIndex);
 	void unselectOption(int optionIndex);
 
 protected:
-
+	// protected variables
 	// Background
 	sf::RectangleShape menuBackground;
 	sf::Texture menuBackgroundTexture;
@@ -60,5 +61,4 @@ protected:
 
 	sf::RectangleShape menuOptions[MAX_MENU_OPTIONS_COUNT][2];
 	sf::Texture menuOptionsTextures[MAX_MENU_OPTIONS_COUNT][2];
-
 };

@@ -1,7 +1,4 @@
-#include "MenuState.h"
 #include "OptionsMenu.h"
-#include <iostream>
-#include <string.h>
 
 // constructor
 OptionsMenu::OptionsMenu(int menu_options_count)
@@ -77,6 +74,7 @@ void OptionsMenu::draw(sf::RenderWindow& window)
 
 void OptionsMenu::setStatusText(int status)
 {
+	// set music status text
 	if (status == 2)
 		statusText.setString("On");
 	else
@@ -85,6 +83,7 @@ void OptionsMenu::setStatusText(int status)
 
 void OptionsMenu::setVolumeText(float floatVolumeValue, int status)
 {
+	// set music volume text
 	std::string volumeValueString;
 
 	int intVolumeValue = static_cast<int>(floatVolumeValue);
@@ -92,9 +91,6 @@ void OptionsMenu::setVolumeText(float floatVolumeValue, int status)
 
 	if (status == 0) volumeValueString = "0%";
 	else volumeValueString = std::to_string(intVolumeValue) + "%";
-
-	std::cout << status << std::endl;
-	std::cout << volumeValueString << std::endl;
 
 	volumeText.setString(volumeValueString);
 }
