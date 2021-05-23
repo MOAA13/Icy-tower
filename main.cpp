@@ -1,12 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "DEFINITIONS.h"
-#include "Menu.h"
-#include <iostream>
-#include <time.h>
-#include <vector>
+
+#include "Menu/MainMenu.h"
+#include "Menu/OptionsMenu.h"
+
 #include "Player.h"
 #include "Animation.h"
 
+#include <iostream>
+#include <time.h>
 
 int main()
 {
@@ -15,12 +17,15 @@ int main()
 
 	// Main menu
 	const int mainMenuOptionsCount = 3;
-	Menu mainMenu(mainMenuOptionsCount);
+	MainMenu mainMenu(mainMenuOptionsCount);
 	mainMenu.setBackgroundImg(MAIN_MENU_BACKGROUND_IMG);
 	mainMenu.setBackgroundMusic(THEME_MUSIC);
 
-	// Options Menu
-
+	// Options menu
+	const int optionsMenuOptionsCount = 3;
+	OptionsMenu optionsMenu(optionsMenuOptionsCount);
+	optionsMenu.setBackgroundImg(OPTIONS_MENU_BACKGROUND_IMG);
+	optionsMenu.hide();
 
 	// Background
 	sf::RectangleShape gameBackground(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
@@ -75,78 +80,115 @@ int main()
 			case sf::Event::Closed:
 				window.close();
 				break;
-			}
 
-			/*			
-			player.setTextureRect(animation.uvRect);
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)))
-				player.move(-0.1, 0);
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)))
-				player.move(0, -0.1);
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)))
-				player.move(0.1, 0);
-			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)))
-				player.move(0, 0.1);
-			*/
-			
-			player.Update(deltatime);
-			window.clear();
-			window.draw(gameBackground);
-			
-			player.Draw(window);
-			/*
-			mainMenu.draw(window);
-			
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-			{
-				mainMenu.moveUp();
-				break;
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-			{
-				mainMenu.moveDown();
-				break;
-			}
+			case sf::Event::KeyPressed:
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-			{
-				mainMenu.hide();
-				mainMenu.volumeDown();
-				break;
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-			{
-				mainMenu.volumeUp();
-				break;
-			}
-				/*case sf::Event::KeyPressed:
-				switch (evnt.key.code) {
-				case sf::Keyboard::Up:
-					mainMenu.moveUp();
+				switch (evnt.key.code)
+				{
+
+				case sf::Keyboard::Key::Up:
+					if (mainMenu.display)
+						mainMenu.moveUp();
+					else if (optionsMenu.display)
+						optionsMenu.moveUp();
 					break;
-				case sf::Keyboard::Down:
-					mainMenu.moveDown();
+
+				case sf::Keyboard::Key::Down:
+					if (mainMenu.display)
+						mainMenu.moveDown();
+					else if (optionsMenu.display)
+						optionsMenu.moveDown();
 					break;
-				case sf::Keyboard::Left:
-					mainMenu.hide();
-					mainMenu.volumeDown();
+
+				case sf::Keyboard::Key::Enter:
+					std::cout << mainMenu.display << " " << optionsMenu.display << std::endl;
+					if (mainMenu.display)
+					{
+						mainMenu.hide();
+						switch (mainMenu.currentSelectedOption)
+						{
+						case 0:
+							// start game
+							mainMenu.backgroundMusic.stop();
+							break;
+						case 1:
+							// options menu
+							std::cout << "Showing options menu" << std::endl;
+
+							optionsMenu.display = false;
+							optionsMenu.show();
+							break;
+						case 2:
+							// exit game
+							exit(0);
+							break;
+						}
+					}
+					if (optionsMenu.display)
+					{
+						switch (optionsMenu.currentSelectedOption)
+						{
+						case 0:
+							// stop or pause music
+							if (mainMenu.backgroundMusic.getStatus() == 0)
+							{
+								mainMenu.backgroundMusic.play();
+								optionsMenu.setStatusText(mainMenu.backgroundMusic.getStatus());
+							}
+							else if (mainMenu.backgroundMusic.getStatus() == 2)
+							{
+								mainMenu.backgroundMusic.stop();
+								optionsMenu.setStatusText(mainMenu.backgroundMusic.getStatus());
+							}
+							break;
+						case 2:
+							// back to main menu
+							optionsMenu.hide();
+							mainMenu.show();
+							break;
+						}
+					}
 					break;
-				case sf::Keyboard::Right:
-					mainMenu.volumeUp();
+
+				case sf::Keyboard::Key::Left:
+
+					if (optionsMenu.display)
+					{
+						if (optionsMenu.currentSelectedOption == 1)
+						{
+							mainMenu.volumeDown();
+							optionsMenu.setVolumeText(mainMenu.backgroundMusic.getVolume(), mainMenu.backgroundMusic.getStatus());
+						}
+					}
+					break;
+
+				case sf::Keyboard::Key::Right:
+
+					if (optionsMenu.display)
+					{
+						if (optionsMenu.currentSelectedOption == 1)
+						{
+							mainMenu.volumeUp();
+							optionsMenu.setVolumeText(mainMenu.backgroundMusic.getVolume(), mainMenu.backgroundMusic.getStatus());
+						}
+					}
 					break;
 				}
-				break;*/
+			}
 
+			window.clear();
+			// Main Menu
+			mainMenu.draw(window);
+			// Options Menu
+			optionsMenu.draw(window);
 			/*
-			//window.draw(characterSprite);
+			player.Update(deltatime);
+			player.Draw(window);
 			window.draw(gameBackground);
 			window.draw(block);
 			window.draw(rightWall);
 			window.draw(leftWall);
 			*/
-			window.draw(block);
-			window.draw(rightWall);
-			window.draw(leftWall);
 			window.display();
 			
 		}

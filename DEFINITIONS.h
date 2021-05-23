@@ -8,14 +8,9 @@
 // Menu
 #define MAX_MENU_OPTIONS_COUNT 4
 
-// Position datatype
-struct position {
-	float x;
-	float y;
-};
-
 // Game assets
-#define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\menu_without_text.png"
+#define MAIN_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Main\\main_menu_background.png"
+#define OPTIONS_MENU_BACKGROUND_IMG "assets\\Images\\Menu\\Options\\options_menu_background.png"
 
 // Images
 // ===============================Menu===============================
@@ -34,11 +29,27 @@ const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 		"assets\\Images\\Menu\\Main\\exit_selected.png"
 	}
 };
+
+const std::string OPTIONS_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
+{
+	{
+		"assets\\Images\\Menu\\Options\\theme_music_unselected.png",
+		"assets\\Images\\Menu\\Options\\theme_music_selected.png"
+	},
+	{
+		"assets\\Images\\Menu\\Options\\music_volume_unselected.png",
+		"assets\\Images\\Menu\\Options\\music_volume_selected.png"
+	},
+	{
+		"assets\\Images\\Menu\\Options\\back_unselected.png",
+		"assets\\Images\\Menu\\Options\\back_selected.png"
+	}
+};
 // ==================================================================
 
 // ===============================Game===============================
 #define GAME_BACKGROUND_IMG "assets\\Images\\Game\\game_background.png"
-#define SIDE_WALL_IMG "assets\\Images\\Game\\side-wall.png"
+#define SIDE_WALL_IMG "assets\\Images\\Game\\side_wall.png"
 #define BLOCK_IMG "assets\\Images\\Game\\block.png"
 // ==================================================================
 
@@ -63,4 +74,5 @@ const std::string MAIN_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 // ==================================================================
 
 // Fonts 
-#define FONT_TYPE "assets\\Font\\pharaonic.ttf"
+#define FONT_TYPE_1 "assets\\Font\\pharaonic.ttf"
+#define FONT_TYPE_2 "assets\\Font\\zombies.ttf"
