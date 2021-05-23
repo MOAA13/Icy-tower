@@ -30,7 +30,7 @@ void Player::Update(float deltatime)
 		row = 0; 
 	}
 	else {
-		row = 1;
+		row = 3;
 		if (movement.x > 0.0f) {
 			faceRight = true;
 		}
@@ -38,7 +38,7 @@ void Player::Update(float deltatime)
 			faceRight = false;
 		
 	}
-	animation.Update(row , deltatime, faceRight);
+	animation.Update( row , deltatime, faceRight);
 	body.setTextureRect(animation.uvRect);
 	body.move(movement);
 
