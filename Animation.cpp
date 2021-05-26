@@ -3,8 +3,8 @@
 Animation::Animation(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime)
 {
 	// using pointers to this specific class to be able to access similar variable names
-	this-> ImageCount = ImageCount;
-	this-> switchTIme = switchTime;
+	this->ImageCount = ImageCount;
+	this->switchTIme = switchTime;
 
 	totalTime = 0.0f; // setting the total time 
 
@@ -14,7 +14,7 @@ Animation::Animation(sf::Texture* texture, sf::Vector2u ImageCount, float switch
 	uvRect.height = texture->getSize().y / float(ImageCount.y);
 }
 
-void Animation::update(int row, float deltaTime , bool faceRight )
+void Animation::update(int row, float deltaTime, bool faceRight)
 {
 	CurrentImage.y = row; // setting the y-axis of the current image to the row
 	totalTime += deltaTime; // incrementation of the time
@@ -33,12 +33,12 @@ void Animation::update(int row, float deltaTime , bool faceRight )
 	//Flip
 	if (faceRight)
 	{
-		uvRect.left = (CurrentImage.x ) * uvRect.width;
+		uvRect.left = (CurrentImage.x) * uvRect.width;
 		uvRect.width = abs(uvRect.width);
 	}
 	else
 	{
 		uvRect.left = (CurrentImage.x + 1) * abs(uvRect.width);
 		uvRect.width = -abs(uvRect.width);
-	} 
+	}
 }

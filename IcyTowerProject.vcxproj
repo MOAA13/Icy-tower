@@ -152,20 +152,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu\MainMenu.cpp" />
     <ClCompile Include="Menu\Menu.cpp" />
     <ClCompile Include="Menu\MenuState.cpp" />
     <ClCompile Include="Menu\OptionsMenu.cpp" />
+    <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="DEFINITIONS.h" />
     <ClInclude Include="Menu\MainMenu.h" />
     <ClInclude Include="Menu\Menu.h" />
     <ClInclude Include="Menu\MenuState.h" />
     <ClInclude Include="Menu\OptionsMenu.h" />
+    <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

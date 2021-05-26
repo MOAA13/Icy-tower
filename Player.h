@@ -2,17 +2,16 @@
 #include <SFML/Graphics.hpp>
 #include "DEFINITIONS.h"
 #include "Animation.h"
-
+#include "Collider.h"
 // defining player class
 class Player
 {
 public:
 	// public functions
-	Player(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime , float speed);
-
+	Player(sf::Texture* texture, sf::Vector2u ImageCount, float switchTime, float speed);
 	void update(float deltatime);
 	void draw(sf::RenderWindow& window);
-
+	Collider GetCollider() { return Collider(body); } 
 private:
 	// private variables
 
@@ -21,7 +20,7 @@ private:
 	Animation animation;
 	unsigned int row; // unsigned because it's never gonna be less that zero
 	float speed;
-	bool faceRight; 
+	bool faceRight;
 };
 
 
