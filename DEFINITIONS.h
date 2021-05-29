@@ -56,7 +56,7 @@ const std::string OPTIONS_MENU_OPTIONS_IMGS[MAX_MENU_OPTIONS_COUNT][2] =
 #define BLOCK_IMG "assets\\Images\\Game\\block.png"
 // ==================================================================
 
-// =============================Temp Character============================
+// =============================Character============================
 #define CHARACTER_IMG "assets\\Images\\Game\\char.png"
 // ==================================================================
 

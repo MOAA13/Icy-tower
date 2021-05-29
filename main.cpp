@@ -14,9 +14,9 @@ int main()
 	// Creating window object with (close and resize)
  	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Icy Tower", sf::Style::Close);
 
-	// Menu
+	/* Menu
 	Menu gameMenu;
-
+	*/
 	// Background
 	sf::RectangleShape gameBackground(sf::Vector2f(float(SCREEN_WIDTH) - 70, float(SCREEN_HEIGHT)));
 	sf::Texture gameBackgroundTexture;
@@ -46,14 +46,14 @@ int main()
 	block.setTexture(&blockTexture);
 	block.setPosition(50.0f, SCREEN_HEIGHT - 75);
 
-	//Temp Player
+	//Player
 	sf::Texture playerTexture;
-	playerTexture.loadFromFile(CHARACTER_IMG); 
+	playerTexture.loadFromFile(CHARACTER_IMG);
 
 	//Animation
-	Player player(&playerTexture, sf::Vector2u(7, 4), 0.3f , 100.0f);
+	Player player(&playerTexture, sf::Vector2u(7, 4), 0.3f, 100.0f);
 	float deltatime = 0.0f;
-	sf::Clock clock; 
+	sf::Clock clock;
 
 	// Game loop
 	while (window.isOpen())
@@ -70,26 +70,26 @@ int main()
 			case sf::Event::Closed:
 				window.close();
 				break;
-
+            /*
 			case sf::Event::KeyReleased:
 				if (gameMenu.isActive)
 					gameMenu.handle(evnt);
 				break;
+				*/
 			}
 
 			window.clear();
 
-			// Game Menu
+			/* Game Menu
 			gameMenu.draw(window);
-
-			/*
+			*/
+		
 			player.update(deltatime);
-			player.draw(window);
 			window.draw(gameBackground);
 			window.draw(block);
 			window.draw(rightWall);
 			window.draw(leftWall);
-			*/
+			player.draw(window);
 			window.display();
 			
 		}
