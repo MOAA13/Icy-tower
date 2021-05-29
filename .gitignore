@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 assets/tmp
+SFML-2.5.1
 # Dll files
 openal32.dll
 sfml-audio-2.dll
